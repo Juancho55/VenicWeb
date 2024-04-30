@@ -1,0 +1,12 @@
+#content{
+    width: 95%;
+    margin-left: auto;
+    height: 68vh;
+    max-height: 68vh;
+    margin-top: 5em;
+    margin-right: auto;
+    border-left: #210000 2px solid;
+    border-right: #210000 2px solid;
+    border-radius: 10px;
+    padding: 1em;
+}

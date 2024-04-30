@@ -1,0 +1,26 @@
+#footer{
+    height: 5em;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: #000000;
+    color: aliceblue;
+    left: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#footer #leftFooter{
+    display: inline-block;
+    position: relative;
+    margin-left: 1em;
+    padding-top: 1em;
+}
+
+#footer #rigthFooter{
+    display: inline-block;
+    position: absolute;
+    margin-right: 1em;
+    right: 1em;
+    font-size: 12px;
+    padding-top: 1em;
+}
