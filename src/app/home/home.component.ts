@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/AddNewThird'])
   }
 
+  Cathegories(){
+    this.router.navigate(['/Category'])
+  }
+
   ngOnInit(): void {
     if(sessionStorage.getItem('userValid') == null)
       this.router.navigate(['../']);

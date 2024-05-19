@@ -1,45 +1,58 @@
 <ul>
     <li id="Crear">Crear</li>
     <li id="ConsultarTercero">Consultar</li>
-    <li id="Return">Volver</li>
+    <li (click)="Return()" id="Return">Volver</li>
 </ul>
 <div id="CrearTercero" class="Formulario">
     <form class="custom-form" method="post">
         <h1>Crear Tercero</h1>
 
-        Tipo de Terero: <br/>
-        <select class="with100" name="thirdType" [(ngModel)]="thirdType" required="required">
+        Tipo de Terero: <br />
+        <select class="with100" id="thirdTypeId" name="thirdType" [(ngModel)]="thirdType" required="required">
+            <option value="0">Seleccione</option>
+            <option [value]="thirdType.id" *ngFor="let thirdType of thirdTypes">{{thirdType.name}}</option>
         </select> <br />
 
-        <input type="text" id="firtsName" name="firtsName" [(ngModel)]="firtsName" placeholder="Primer Nombre" required="required" />
+        <input type="text" id="firtsName" name="firtsName" [(ngModel)]="firtsName" placeholder="Primer Nombre"
+            required="required" />
         <input type="text" id="secondName" name="secondName" [(ngModel)]="secondName" placeholder="Segundo Nombre"
             required="required" />
-        <input type="text" id="firtsSurName" name="firtsSurName" [(ngModel)]="firtsSurName" placeholder="Primer Apellido"
-            required="required" />
-        <input type="text" id="secondSurName" name="secondSurName" [(ngModel)]="secondSurName" placeholder="Segundo Apellido"
-            required="required" />
+        <input type="text" id="firtsSurName" name="firtsSurName" [(ngModel)]="firtsSurName"
+            placeholder="Primer Apellido" required="required" />
+        <input type="text" id="secondSurName" name="secondSurName" [(ngModel)]="secondSurName"
+            placeholder="Segundo Apellido" required="required" />
         Genero: <br />
         <select name="genderType" id="genderType" class="with48" [(ngModel)]="genderType" required="required"
-            aria-placeholder="Genero"></select>
-        <input type="text" id="bussinesName" name="bussinesName" [(ngModel)]="bussinesName" placeholder="Nombre Comercial"
-            required="required" />
-        Tipo de Doumento: <br />
+            aria-placeholder="Genero">
+            <option value="0">Seleccione</option>
+            <option value="1">Masculino</option>
+            <option value="2">Femenino</option>
+            <option value="3">No Especificar</option>
+        </select>
+        <input type="text" id="bussinesName" name="bussinesName" [(ngModel)]="bussinesName"
+            placeholder="Nombre Comercial" required="required" />
+        <br /> Tipo de Doumento: <br />
         <select name="documentType" class="with48" [(ngModel)]="documentType" required="required"
-            aria-placeholder="Tipo de Doumento"></select>
+            aria-placeholder="Tipo de Doumento">
+            <option value="0">Seleccione</option>
+            <option [value]="documentType.id" *ngFor="let documentType of Documents">{{documentType.name}}</option>
+        </select>
         <input type="text" name="documentNumber" [(ngModel)]="documentNumber" placeholder="Numero de documento"
             required="required" />
-
-        Fecha de Nacimiento: <br />
-        <input type="date" id="birthdayDate" name="birthdayDate" [(ngModel)]="birthdayDate" placeholder="Fecha de Nacimiento"
-            required="required" />
+            <br/>
+        <div id="birthdayDate">
+            Fecha de Nacimiento: <br />
+            <input type="date" name="birthdayDate" [(ngModel)]="birthdayDate" placeholder="Fecha de Nacimiento"
+                required="required" />
+        </div>
         <div id="legalDate">
             Fecha Constitucion: <br />
             <input type="date" name="legalDate" [(ngModel)]="legalDate" placeholder="Feha legal" required="required" />
         </div>
-        <button type="submit">Guardar </button>
+        <button type="submit" (click)="save()">Guardar </button>
         <br />
     </form>
 </div>
 <div id="Consultar" class="Formulario">
-    b
+    <h2>Consultar la información de los tereros</h2>
 </div>
