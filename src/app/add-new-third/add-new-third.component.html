@@ -1,1 +1,33 @@
-<p>add-new-third works!</p>
+<ul>
+    <li id="Crear">Crear</li>
+    <li id="ConsultarTercero">Consultar</li>
+</ul>
+<div id="CrearTercero" class="Formulario">
+    <form class="custom-form" method="post">
+        <h1>Crear Tercero</h1>
+
+        <select name="thirdType" [(ngModel)]="documentType" required="required"></select>
+
+        <input type="text" name="firtsName" [(ngModel)]="firtsName" placeholder="Primer Nombre" required="required" />
+        <input type="text" name="secondName" [(ngModel)]="secondName" placeholder="Segundo Nombre"
+            required="required" />
+        <input type="text" name="firtsSurName" [(ngModel)]="firtsSurName" placeholder="Primer Apellido"
+            required="required" />
+        <input type="text" name="secondSurName" [(ngModel)]="secondSurName" placeholder="Segundo Apellido"
+            required="required" />
+        <input type="text" name="bussinesName" [(ngModel)]="bussinesName" placeholder="Nombre Comercial"
+            required="required" />
+        <select name="documentType" [(ngModel)]="documentType" required="required" aria-placeholder="Tipo de Doumento"></select>
+        <input type="text" name="documentNumber" [(ngModel)]="documentNumber" placeholder="Numero de documento"
+            required="required" />
+        <select name="genderType" [(ngModel)]="genderType" required="required" aria-placeholder="Genero"></select>
+        <input type="date" name="birthdayDate" [(ngModel)]="birthdayDate" placeholder="Fecha de Nacimiento"
+            required="required" />
+        <input type="date" name="legalDate" [(ngModel)]="legalDate" placeholder="Feha legal" required="required" />
+        
+        <button type="submit" (click)="login()">Iniciar Sesion </button>
+    </form>
+</div>
+<div id="Consultar" class="Formulario">
+    b
+</div>

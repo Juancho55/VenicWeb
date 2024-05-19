@@ -14,6 +14,10 @@ export class HomeComponent implements OnInit {
 
   }
 
+  Thirds(){
+    this.router.navigate(['/AddNewThird'])
+  }
+
   ngOnInit(): void {
     if(sessionStorage.getItem('userValid') == null)
       this.router.navigate(['../']);

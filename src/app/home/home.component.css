@@ -30,15 +30,7 @@ li {
 li:hover {
     transition: all;
     width: 9em;
-    color: black;
-    background-color: aliceblue;
-}
-
-li a{
-    color: #000000;
-    text-decoration: none;
-}
-
-li a:hover{
     color: green;
+    background-color: aliceblue;
+    cursor: pointer;
 }
