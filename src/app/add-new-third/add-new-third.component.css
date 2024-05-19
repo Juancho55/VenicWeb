@@ -1,4 +1,4 @@
-ul{
+ul {
     width: 14em;
     display: inline-block;
     margin-block-start: 0;
@@ -23,7 +23,7 @@ li:hover {
     border-color: #55bd00;
 }
 
-.Formulario{
+.Formulario {
     margin-left: 2em;
     display: inline-block;
     width: 50em;
@@ -32,21 +32,33 @@ li:hover {
     padding: 1em;
     border-bottom: 4px solid #4d7f00;
     min-height: 60vh;
+    max-height: 63vh;
+    overflow: auto;
 }
 
-.custom-form input {
-    display: block;
-    margin: 2rem 0;
-    width: 100%;
+.with48 {
+    width: 48% !important;
+}
+
+.with100 {
+    width: 97% !important;
+}
+
+.custom-form input,
+select {
+    display: inline-block;
+    margin: 1rem 0;
+    width: 44%;
+    margin-right: 0.5rem;
     border-radius: 0.5rem;
     padding: 1rem;
     border: none;
-    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8), inset 5px 5px 10px
-        rgba(0, 0, 0, 0.1);
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8), inset 5px 5px 10px rgba(0, 0, 0, 0.1);
     border: 0 none;
     background: #ebf5fc;
-  }
-  .custom-form button {
+}
+
+.custom-form button {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border: none;
@@ -60,10 +72,10 @@ li:hover {
     border-radius: 1.5rem;
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
-  }
+}
 
-  .custom-form button:hover {
+.custom-form button:hover {
     color: #ffffff;
     font-weight: bold;
     background-color: #000000;
-  }
+}
