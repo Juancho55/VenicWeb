@@ -18,7 +18,7 @@ export class ThirdsService {
       .append('Content-Type', 'application/json')
       .append('accept', '*/*')
       .append('ApiVersion', '1.1');
-      return headers;
+    return headers;
   }
 
   public post(body: any): Observable<any> {
@@ -27,14 +27,20 @@ export class ThirdsService {
     });
   }
 
-  public getThirdType(): Observable<any>{
+  public getThirdType(): Observable<any> {
     return this.http.get(this.API + "Type", {
       headers: this.setHeaders()
     });
   }
 
-  public getDocumentType(): Observable<any>{
+  public getDocumentType(): Observable<any> {
     return this.http.get(this.API + "Document", {
+      headers: this.setHeaders()
+    });
+  }
+
+  public AllThirds(body: any): Observable<any> {
+    return this.http.post(this.API + "AllThirds", body, {
       headers: this.setHeaders()
     });
   }

@@ -26,7 +26,7 @@ li:hover {
 .Formulario {
     margin-left: 2em;
     display: inline-block;
-    width: 50em;
+    width: 58em;
     border-top: 4px solid #4d7f00;
     border-radius: 2em;
     padding: 1em;
@@ -45,7 +45,20 @@ li:hover {
 }
 
 .custom-form {
-    width: 50em;
+    width: 57em;
+}
+
+.Formularioonsulta {
+    margin-left: 2em;
+    display: inline-block;
+    width: 70em;
+    border-top: 4px solid #4d7f00;
+    border-radius: 2em;
+    padding: 1em;
+    border-bottom: 4px solid #4d7f00;
+    min-height: 60vh;
+    max-height: 63vh;
+    overflow: auto;
 }
 
 .custom-form input,

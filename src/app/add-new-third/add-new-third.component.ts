@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { allowedNodeEnvironmentFlags } from 'process';
 import { ThirdsService } from '../Services/thirds.service';
@@ -6,11 +6,13 @@ import { ok } from 'assert';
 import { Router } from '@angular/router';
 import $, { data } from 'jquery';
 import { NgForOf } from '@angular/common';
+import { MatTableModule, MatTable } from '@angular/material/table';
+import test from 'node:test';
 
 @Component({
   selector: 'app-add-new-third',
   standalone: true,
-  imports: [FormsModule, NgForOf],
+  imports: [FormsModule, NgForOf, MatTableModule, MatTable],
   templateUrl: './add-new-third.component.html',
   styleUrl: './add-new-third.component.css'
 })
@@ -29,14 +31,19 @@ export class AddNewThirdComponent {
   legalDate: Date;
   thirdTypes: Array<any>;
   Documents: Array<any>;
+  thirdsData: Persons[];
 
+  columnas: string[] = ['Id', 'Primer Nombre', 'Segundo Nombre', 'Primer Apellido',
+    'Segundo Apellido', 'Nombre Comercial', 'Tipo doumento Id', 'Numero documento', 'Tipo tercero Id',
+    'Genero Id', 'Fecha Nacimiento', 'Fecha Constitucion', 'Activo', 'borrar'];
 
+  articuloselect: Persons = new Persons(0, "", "", "", "", "", 0, "", 0, 0, new Date(), new Date(), true);
 
   constructor(private service: ThirdsService, private router: Router) {
 
   }
 
-  Return(){
+  Return() {
     this.router.navigate(['/Home'])
   }
 
@@ -79,9 +86,43 @@ export class AddNewThirdComponent {
     })
   }
 
+  @ViewChild(MatTable) tabla1!: MatTable<Persons>;
+
+  borrarFila(cod: number) {
+    if (confirm("Realmente quiere borrarlo?")) {
+      this.thirdsData.splice(cod, 1);
+      this.tabla1.renderRows();
+    }
+  }
+
+
   ngOnInit(): void {
     if (sessionStorage.getItem('userValid') == null)
       this.router.navigate(['../']);
+
+    let getPersons = {
+      id: 0,
+      firstName: this.firtsName,
+      secondName: this.secondName,
+      firstSurName: this.firtsSurName,
+      secondSurName: this.secondSurName,
+      comercialName: this.bussinesName,
+      documentTypeId: this.documentType,
+      documentNumber: this.documentNumber,
+      thirdTypeId: 10,
+      genderId: this.genderType,
+      birthDay: this.birthdayDate,
+      legalDate: this.legalDate,
+      active: true
+    }
+
+    this.service.AllThirds(getPersons).subscribe(resp => {
+      if (resp != null) {
+        this.thirdsData = resp;
+      }
+      else
+        alert("No hay información cargada");
+    })
 
     this.thirdType = 0;
     this.documentType = 0;
@@ -136,5 +177,23 @@ export class AddNewThirdComponent {
         this.Documents = resp;
       }
     });
+  }
+}
+
+export class Persons {
+  constructor(
+    id: number,
+    firstName: string,
+    secondName: string,
+    firstSurName: string,
+    secondSurName: string,
+    comercialName: string,
+    documentTypeId: number,
+    documentNumber: string,
+    thirdTypeId: number,
+    genderId: number,
+    birthDay: Date,
+    legalDate: Date,
+    active: boolean) {
   }
 }

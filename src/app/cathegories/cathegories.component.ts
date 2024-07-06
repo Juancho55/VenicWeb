@@ -23,4 +23,8 @@ export class CathegoriesComponent {
     this.router.navigate(['/Home'])
   }
 
+  ngOnInit(): void {
+    if(sessionStorage.getItem('userValid') == null)
+      this.router.navigate(['../']);
+  }
 }

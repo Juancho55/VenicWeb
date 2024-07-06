@@ -22,6 +22,18 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/Category'])
   }
 
+  Products(){
+    this.router.navigate(['/Products'])
+  }
+
+  Solds(){
+    this.router.navigate(['/Solds'])
+  }
+
+  Configurations(){
+    this.router.navigate(['/Configurations'])
+  }
+
   ngOnInit(): void {
     if(sessionStorage.getItem('userValid') == null)
       this.router.navigate(['../']);
